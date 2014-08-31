@@ -1,9 +1,9 @@
 CACHE MANIFEST
-./styles.css
+./application.js
 ./indexeddb.shim.min.js
 ./promise.js
+./styles.css
 ./superagent.js
-./application.js
 
 FALLBACK:
 / /
