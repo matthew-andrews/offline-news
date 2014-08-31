@@ -71,7 +71,7 @@
 
       // Only refresh the view if it's listing page
       .then(function() {
-        if ((location.pathname+location.search) === '/') {
+        if (location.pathname === '/') {
           return refreshView();
         }
       })
