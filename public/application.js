@@ -21,20 +21,20 @@
   }
 
   function refreshView() {
-    var guid = (location.pathname+location.search).substring(1);
-    if (guid === '') {
+    var guidMatches = location.pathname.match(/^\/article\/([0-9]+)/);
+    if (!guidMatches) {
       renderAllStories();
       return databaseStoriesGet().then(renderAllStories);
     }
     renderOneStory();
-    return databaseStoriesGetById(guid).then(renderOneStory);
+    return databaseStoriesGetById(guidMatches[1]).then(renderOneStory);
   }
 
   function renderAllStories(stories) {
     if (!stories) stories = [];
     var ul = '';
     stories.forEach(function(story) {
-      ul += '<li><a class="js-link" href="/'+story.guid+'">'+story.title+'</a></li>';
+      ul += '<li><a class="js-link" href="/article/'+story.guid+'">'+story.title+'</a></li>';
     });
     main.innerHTML = '<h1>FT Tech Blog</h1><ul>'+ul+'</ul>';
   }
