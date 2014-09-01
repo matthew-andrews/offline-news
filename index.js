@@ -4,7 +4,7 @@ var app = express();
 
 app.use(express.static(__dirname+'/public'));
 
-app.get('/article/:guid', bootstrap); 
+app.get('/article/:guid', bootstrap);
 app.get('/', bootstrap);
 
 function bootstrap(req, res) {
