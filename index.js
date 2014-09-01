@@ -9,7 +9,7 @@ app.get('/', bootstrap);
 
 function bootstrap(req, res) {
   res.sendFile('public/index.html', { root: __dirname });
-};
+}
 
 app.listen(port);
 console.log('listening on '+port);
