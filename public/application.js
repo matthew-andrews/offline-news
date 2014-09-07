@@ -108,7 +108,7 @@
       var transaction = db.transaction(['stories'], 'readwrite');
       var store = transaction.objectStore('stories');
       var request = store.put(story);
-      request.onsuccess = resolve;
+      transaction.oncomplete = resolve;
       request.onerror = reject;
     });
   }
@@ -152,7 +152,7 @@
       var transaction = db.transaction(['stories'], 'readwrite');
       var store = transaction.objectStore('stories');
       var request = store.delete(story.guid);
-      request.onsuccess = resolve;
+      transaction.oncomplete = resolve;
       request.onerror = reject;
     });
   }
